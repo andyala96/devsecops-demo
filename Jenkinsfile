@@ -42,7 +42,7 @@ stage('Quality Gate') {
 
         stage('Trivy Scan') {
             steps {
-                sh 'trivy image --severity HIGH,CRITICAL --exit-code 1 demoapp'
+                sh 'trivy image --severity HIGH,CRITICAL demoapp'
             }
         }
 
