@@ -8,6 +8,12 @@ pipeline {
                 sh 'gitleaks detect --source . --verbose'
             }
         }
+        stage('OWASP Dependency Check') {
+    steps {
+        dependencyCheck additionalArguments: '--scan .',
+                        odcInstallation: 'DependencyCheck'
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
